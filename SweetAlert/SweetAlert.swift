@@ -15,6 +15,13 @@ public enum AlertStyle {
     case CustomImag(imageFile:String)
 }
 
+struct SweetAlertSettings {
+    static let settings = SweetAlertSettings()
+
+    var fontName: String = "Helvetica"
+    var OKText: String = "OK"
+}
+
 public class SweetAlert: UIViewController {
     let kBakcgroundTansperancy: CGFloat = 0.7
     let kHeightMargin: CGFloat = 10.0
@@ -34,7 +41,6 @@ public class SweetAlert: UIViewController {
     var imageView:UIImageView?
     var subTitleTextView = UITextView()
     var userAction:((isOtherButton: Bool) -> Void)? = nil
-    let kFont = "Helvetica"
 
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -67,14 +73,14 @@ public class SweetAlert: UIViewController {
         titleLabel.text = ""
         titleLabel.numberOfLines = 1
         titleLabel.textAlignment = .Center
-        titleLabel.font = UIFont(name: kFont, size:25)
+        titleLabel.font = UIFont(name: SweetAlertSettings.settings.fontName, size:25)
         titleLabel.textColor = UIColor.colorFromRGB(0x575757)
     }
     
     private func setupSubtitleTextView() {
         subTitleTextView.text = ""
         subTitleTextView.textAlignment = .Center
-        subTitleTextView.font = UIFont(name: kFont, size:16)
+        subTitleTextView.font = UIFont(name: SweetAlertSettings.settings.fontName, size:16)
         subTitleTextView.textColor = UIColor.colorFromRGB(0x797979)
         subTitleTextView.editable = false
     }
@@ -211,7 +217,7 @@ public class SweetAlert: UIViewController {
     }
     
     public func showAlert(title: String, subTitle: String?, style: AlertStyle) -> SweetAlert {
-        self.showAlert(title, subTitle: subTitle, style: style, buttonTitle: "OK")
+        self.showAlert(title, subTitle: subTitle, style: style, buttonTitle: SweetAlertSettings.settings.OKText)
         return self
 
     }
