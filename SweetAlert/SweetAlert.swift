@@ -15,11 +15,11 @@ public enum AlertStyle {
     case CustomImag(imageFile:String)
 }
 
-struct SweetAlertSettings {
-    static let settings = SweetAlertSettings()
+public struct SweetAlertSettings {
+    static var settings = SweetAlertSettings()
 
-    var fontName: String = "Helvetica"
-    var OKText: String = "OK"
+    public var fontName: String = "Helvetica"
+    public var OKText: String = "OK"
 }
 
 public class SweetAlert: UIViewController {
