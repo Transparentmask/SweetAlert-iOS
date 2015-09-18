@@ -278,7 +278,7 @@ public class SweetAlert: UIViewController {
             }
             buttons = []
             if buttonTitle.isEmpty == false {
-                let button: UIButton = UIButton.buttonWithType(UIButtonType.Custom) as! UIButton
+                let button: UIButton = UIButton.buttonWithType(UIButtonType.Custom) 
                 button.setTitle(buttonTitle, forState: UIControlState.Normal)
                 button.backgroundColor = buttonColor
                 button.userInteractionEnabled = true
@@ -287,7 +287,7 @@ public class SweetAlert: UIViewController {
             }
             
             if otherButtonTitle != nil && otherButtonTitle!.isEmpty == false {
-                let button: UIButton = UIButton.buttonWithType(UIButtonType.Custom) as! UIButton
+                let button: UIButton = UIButton.buttonWithType(UIButtonType.Custom) 
                 button.setTitle(otherButtonTitle, forState: UIControlState.Normal)
                 button.backgroundColor = otherButtonColor
                 button.addTarget(self, action: "pressed:", forControlEvents: UIControlEvents.TouchUpInside)
@@ -347,7 +347,7 @@ public class SweetAlert: UIViewController {
 
 class AnimatableView: UIView {
     func animate(){
-        print("Should overide by subclasss", appendNewline: false)
+        print("Should overide by subclasss", terminator: "")
     }
 }
 
