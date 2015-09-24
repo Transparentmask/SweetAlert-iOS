@@ -45,7 +45,7 @@ public class SweetAlert: UIViewController {
     init() {
         super.init(nibName: nil, bundle: nil)
         self.view.frame = UIScreen.mainScreen().bounds
-        self.view.autoresizingMask = UIViewAutoresizing.FlexibleHeight | UIViewAutoresizing.FlexibleWidth
+        self.view.autoresizingMask = [.FlexibleHeight, .FlexibleWidth]
         self.view.backgroundColor = UIColor(red:0, green:0, blue:0, alpha:kBakcgroundTansperancy)
         self.view.addSubview(contentView)
         
@@ -278,7 +278,7 @@ public class SweetAlert: UIViewController {
             }
             buttons = []
             if buttonTitle.isEmpty == false {
-                let button: UIButton = UIButton.buttonWithType(UIButtonType.Custom) 
+                let button: UIButton = UIButton(type: UIButtonType.Custom)
                 button.setTitle(buttonTitle, forState: UIControlState.Normal)
                 button.backgroundColor = buttonColor
                 button.userInteractionEnabled = true
@@ -287,7 +287,7 @@ public class SweetAlert: UIViewController {
             }
             
             if otherButtonTitle != nil && otherButtonTitle!.isEmpty == false {
-                let button: UIButton = UIButton.buttonWithType(UIButtonType.Custom) 
+                let button: UIButton = UIButton(type: UIButtonType.Custom)
                 button.setTitle(otherButtonTitle, forState: UIControlState.Normal)
                 button.backgroundColor = otherButtonColor
                 button.addTarget(self, action: "pressed:", forControlEvents: UIControlEvents.TouchUpInside)
